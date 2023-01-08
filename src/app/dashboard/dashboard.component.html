@@ -1,0 +1,33 @@
+<div class="container px-4 py-5">
+  <h2 class="pb-2 border-bottom">Dashboard info:</h2>
+  <p>Connected to the token at address: {{ tokenContractAddress }}</p>
+  <p>This token has a total supply of: {{ tokenTotalSupply }}</p>
+  <p>Your wallet address is {{ walletAddress }}</p>
+  <p>This wallet has a balance of: {{ etherBalance }}</p>
+  <p>Name: {{ this.claimForm.value.name }}</p>
+  <form [formGroup]="claimForm">
+    <input type="text" placeholder="your name" name="name" />
+    <input type="id" placeholder="your id" name="id" />
+  </form>
+  <br />
+
+  Delegate another address to vote:
+  <form>
+    <app-input [control]="formGroup.controls.address"></app-input>
+  </form>
+  <button class="btn btn-primary my-2" (click)="delegate()">Delegate</button>
+  <br />
+  <br />
+
+  Submit your vote's decision:
+  <form>
+    <app-input [control]="formGroupVote.controls.vote"></app-input>
+  </form>
+  <button class="btn btn-primary my-2" (click)="delegate()">Vote</button>
+  <br />
+
+  <button class="btn btn-primary my-2" (click)="getWinningProposal()">
+    Get Winner
+  </button>
+  {{ this.claimForm.value.name }}
+</div>
